@@ -3,18 +3,21 @@ const BASE_URL = "https://api.themoviedb.org/3";
 export async function handler(event) {
   try {
     const endpoint = event.queryStringParameters.endpoint;
-
     const token = process.env.TMDB_TOKEN;
+
+    if (!endpoint) {
+      return {
+        statusCode: 400,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: "Endpoint is required" }),
+      };
+    }
 
     if (!token) {
       return {
         statusCode: 500,
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          message: "TMDB_TOKEN is missing in Netlify environment variables",
-          tokenExists: false,
-          tokenLength: 0,
-        }),
+        body: JSON.stringify({ message: "TMDB_TOKEN missing" }),
       };
     }
 
@@ -30,15 +33,7 @@ export async function handler(event) {
     return {
       statusCode: response.status,
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        debug: {
-          tokenExists: true,
-          tokenLength: token.length,
-          tokenStartsWith: token.slice(0, 10),
-          tmdbStatus: response.status,
-        },
-        tmdbResponse: data,
-      }),
+      body: JSON.stringify(data),
     };
   } catch (error) {
     return {

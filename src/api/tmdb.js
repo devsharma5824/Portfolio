@@ -1,16 +1,9 @@
-const BASE_URL = "https://api.themoviedb.org/3";
 const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w500";
 
-const TOKEN = import.meta.env.TMDB_TOKEN;
-
 async function tmdbFetch(endpoint) {
-  const response = await fetch(`${BASE_URL}${endpoint}`, {
-    method: "GET",
-    headers: {
-      accept: "application/json",
-      Authorization: `Bearer ${TOKEN}`,
-    },
-  });
+  const response = await fetch(
+    `/.netlify/functions/tmdb?endpoint=${encodeURIComponent(endpoint)}`,
+  );
 
   if (!response.ok) {
     throw new Error(`TMDB Error: ${response.status}`);

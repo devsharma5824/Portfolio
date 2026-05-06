@@ -72,7 +72,6 @@ export default function Home() {
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-black text-white">
-
       {/* HERO */}
       <section
         id="home"
@@ -107,14 +106,13 @@ export default function Home() {
             >
               <p className="max-w-xl text-base leading-8 text-white/55 md:text-lg">
                 I build premium, responsive, animated web interfaces using
-                React, Tailwind, Framer Motion and modern
-                frontend tools.
+                React, Tailwind, Framer Motion and modern frontend tools.
               </p>
 
               <div className="flex items-start gap-3">
                 <a
                   href="mailto:hello@example.com"
-                  className="group relative hidden h-14 items-center justify-center overflow-hidden rounded-full bg-[#11131c] px-7 text-sm font-bold uppercase text-white shadow-[0_20px_70px_rgba(0,0,0,0.18)] sm:inline-flex hover:text-black transition duration-300"
+                  className="group relative hidden h-14 items-center justify-center overflow-hidden rounded-full bg-white/5 px-7 text-sm font-bold uppercase text-white shadow-[0_20px_70px_rgba(0,0,0,0.18)] sm:inline-flex hover:text-black transition duration-300"
                 >
                   <span className="relative z-10 flex items-center gap-3 ">
                     View Work{" "}
@@ -168,8 +166,6 @@ export default function Home() {
             <h2 className="max-w-xl text-4xl font-medium tracking-[-0.07em] text-white md:text-6xl">
               Tech I work with
             </h2>
-
-          
           </div>
 
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">

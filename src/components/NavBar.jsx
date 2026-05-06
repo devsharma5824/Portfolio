@@ -1,11 +1,14 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useRef , useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
+
+const MotionLink = motion(Link);
 
 const navItems = [
-  { label: "Home", id: "home" },
-  { label: "About", id: "about" },
-  { label: "Projects", id: "work" },
-  { label: "Skills", id: "skills" },
+  { label: "Home", to: "/" },
+  { label: "About", to: "/about" },
+  { label: "Projects", to: "/work" },
+  { label: "Skills", to: "/skills" },
 ];
 
 const menuWrap = {
@@ -71,30 +74,29 @@ const loadFromGround = {
 };
 
 export default function NavBar() {
-    
-     const [open, setOpen] = useState(false);
-     const menuRef = useRef(null);
+  const [open, setOpen] = useState(false);
+  const menuRef = useRef(null);
 
-     useEffect(() => {
-       function handleClickOutside(e) {
-         if (menuRef.current && !menuRef.current.contains(e.target)) {
-           setOpen(false);
-         }
-       }
+  useEffect(() => {
+    function handleClickOutside(e) {
+      if (menuRef.current && !menuRef.current.contains(e.target)) {
+        setOpen(false);
+      }
+    }
 
-       document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
 
-       return () => {
-         document.removeEventListener("mousedown", handleClickOutside);
-       };
-     }, []);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <header className="fixed left-0 right-0 top-0 z-[999] px-4 pt-6 sm:px-7 md:px-12">
       <nav className="mx-auto flex max-w-[1800px] items-center gap-6">
-        {/* LEFT NAME LOADS FROM GROUND */}
-        <motion.a
-          href="/"
+        {/* LEFT NAME */}
+        <MotionLink
+          to="/"
           variants={loadFromGround}
           initial="hidden"
           animate="show"
@@ -109,9 +111,9 @@ export default function NavBar() {
               𝓓𝓔𝓥
             </span>
           </span>
-        </motion.a>
+        </MotionLink>
 
-        {/* RIGHT BUTTONS LOAD FROM GROUND AFTER LOGO */}
+        {/* RIGHT BUTTONS */}
         <motion.div
           ref={menuRef}
           variants={loadFromGround}
@@ -120,15 +122,15 @@ export default function NavBar() {
           transition={{ delay: 0.18 }}
           className="relative ml-auto flex items-start gap-2 sm:gap-3"
         >
-          <a
-            href="mailto:hello@example.com"
-            className="group relative hidden h-14 items-center justify-center overflow-hidden rounded-full bg-[#11131c] px-7 text-sm font-bold uppercase text-white shadow-[0_20px_70px_rgba(0,0,0,0.18)] sm:inline-flex hover:text-black transition duration-300"
+          <Link
+            to="/contact"
+            className="group relative hidden h-14 items-center justify-center overflow-hidden rounded-full bg-white/5 px-7 text-sm font-bold uppercase text-white shadow-[0_20px_70px_rgba(0,0,0,0.18)] transition duration-300 hover:text-black sm:inline-flex"
           >
-            <span className="relative z-10 flex items-center gap-3 ">
+            <span className="relative z-10 flex items-center gap-3">
               Let&apos;s Talk <span className="text-lg leading-none">•</span>
             </span>
             <span className="absolute inset-0 translate-y-full rounded-full bg-white transition duration-250 ease-out group-hover:translate-y-0" />
-          </a>
+          </Link>
 
           <motion.button
             whileTap={{ scale: 0.94 }}
@@ -177,16 +179,14 @@ export default function NavBar() {
                 >
                   <div className="space-y-1">
                     {navItems.map((link, index) => (
-                      <a
-                        key={link.id}
-                        href={`#${link.id}`}
+                      <Link
+                        key={link.label}
+                        to={link.to}
                         onClick={() => setOpen(false)}
                         className="group relative flex h-[62px] items-center justify-between overflow-hidden rounded-full px-5 text-2xl font-medium uppercase tracking-[-0.04em] text-black sm:text-3xl"
                       >
-                        {/* Hover background expands from CENTER */}
-                        <span className="absolute inset-y-1 left-1 right-1 scale-x-0 rounded-full bg-black opacity-0 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-100 group-hover:opacity-100" />
+                        <span className="absolute inset-y-1 left-1 right-1 origin-center scale-x-0 rounded-full bg-black opacity-0 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-100 group-hover:opacity-100" />
 
-                        {/* Text animation like Menu / Close button */}
                         <span className="relative z-10 h-[38px] overflow-hidden leading-[38px]">
                           <motion.span
                             initial={{ y: 38 }}
@@ -198,19 +198,16 @@ export default function NavBar() {
                             }}
                             className="block"
                           >
-                            {/* normal text goes UP */}
                             <span className="block transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-full">
                               {link.label}
                             </span>
 
-                            {/* white text comes from BOTTOM */}
                             <span className="block text-white transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-full">
                               {link.label}
                             </span>
                           </motion.span>
                         </span>
 
-                        {/* Right dot / arrow animation */}
                         <span className="relative z-10 grid h-10 w-10 place-items-center overflow-hidden rounded-full">
                           {index === 0 && (
                             <span className="absolute h-2.5 w-2.5 rounded-full bg-black transition-all duration-300 group-hover:scale-0" />
@@ -220,7 +217,7 @@ export default function NavBar() {
                             →
                           </span>
                         </span>
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </motion.div>
@@ -245,40 +242,39 @@ export default function NavBar() {
 
                       window.location.href = `mailto:${yourEmail}?subject=${subject}&body=${body}`;
                     }}
-                    className="mt-7 flex min-h-16 items-center rounded-2xl bg-[#eef0f8] px-5 transition focus-within:text-black"
+                    className="mt-7 flex min-h-16 items-center rounded-2xl bg-[#eef0f8] px-5 transition"
                   >
                     <textarea
                       name="message"
-                      placeholder="Your Messaage"
+                      placeholder="Your Message"
                       rows="1"
-                      className="max-h-24 min-h-10 flex-1 resize-none bg-transparent py-3 text-base text-black outline-none placeholder:text-black/30 focus:text-black focus:placeholder:text-black/35 overflow-hidden"
+                      className="max-h-24 min-h-10 flex-1 resize-none overflow-hidden bg-transparent py-3 text-base text-black outline-none placeholder:text-black/30 focus:text-black focus:placeholder:text-black/35"
                     />
 
-                    <a
-                      href="mailto:devsharmaa04@gmail.com"
+                    <button
                       type="submit"
-                      className="pl-4 text-4xl leading-none text-black transition duration-300 hover:translate-x-1 focus-within:text-black"
+                      className="pl-4 text-4xl leading-none text-black transition duration-300 hover:translate-x-1"
                       aria-label="Send message"
                     >
                       →
-                    </a>
+                    </button>
                   </form>
                 </motion.div>
 
-                <motion.a
+                <MotionLink
                   variants={menuCard}
-                  href="#work"
+                  to="/play"
                   onClick={() => setOpen(false)}
-                  className="group mt-3 flex h-20 items-center justify-between overflow-hidden rounded-[22px] bg-black px-7 text-white shadow-[0_30px_100px_rgba(0,0,0,0.25)]"
+                  className="group mt-3 flex h-20 items-center justify-between overflow-hidden rounded-[22px] bg-white/5 px-7 text-white shadow-[0_30px_100px_rgba(0,0,0,0.25)]"
                 >
                   <span className="text-3xl">☻</span>
-                  <span className="mr-auto pl-5 text-2xl font-bold uppercase tracking-[-0.06em]">
-                    Labs
+                  <span className="mr-auto pl-5 text-2xl font-bold uppercase tracking-[-0.03em]">
+                    PLAY
                   </span>
                   <span className="text-4xl transition duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
                     ↗
                   </span>
-                </motion.a>
+                </MotionLink>
               </motion.div>
             )}
           </AnimatePresence>

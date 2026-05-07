@@ -1,14 +1,14 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import {Link , NavLink } from "react-router-dom";
 
 const MotionLink = motion(Link);
 
 const navItems = [
   { label: "Home", to: "/" },
   { label: "About", to: "/about" },
-  { label: "Projects", to: "/work" },
-  { label: "Skills", to: "/skills" },
+  { label: "Projects", to: "/projects" },
+  { label: "Contact", to: "/contact" },
 ];
 
 const menuWrap = {
@@ -77,6 +77,10 @@ export default function NavBar() {
   const [open, setOpen] = useState(false);
   const menuRef = useRef(null);
 
+   useEffect(() => {
+     setOpen(false);
+   }, [location.pathname]);
+
   useEffect(() => {
     function handleClickOutside(e) {
       if (menuRef.current && !menuRef.current.contains(e.target)) {
@@ -95,11 +99,8 @@ export default function NavBar() {
     <header className="fixed left-0 right-0 top-0 z-[999] px-4 pt-6 sm:px-7 md:px-12">
       <nav className="mx-auto flex max-w-[1800px] items-center gap-6">
         {/* LEFT NAME */}
-        <MotionLink
+        <Link
           to="/"
-          variants={loadFromGround}
-          initial="hidden"
-          animate="show"
           className="group relative inline-flex pt-2 text-2xl font-black uppercase text-white mix-blend-difference md:text-3xl"
         >
           <span className="relative h-[36px] overflow-hidden leading-[36px]">
@@ -111,7 +112,7 @@ export default function NavBar() {
               𝓓𝓔𝓥
             </span>
           </span>
-        </MotionLink>
+        </Link>
 
         {/* RIGHT BUTTONS */}
         <motion.div
@@ -122,7 +123,7 @@ export default function NavBar() {
           transition={{ delay: 0.18 }}
           className="relative ml-auto flex items-start gap-2 sm:gap-3"
         >
-          <Link
+          <NavLink
             to="/contact"
             className="group relative hidden h-14 items-center justify-center overflow-hidden rounded-full bg-white/5 px-7 text-sm font-bold uppercase text-white shadow-[0_20px_70px_rgba(0,0,0,0.18)] transition duration-300 hover:text-black sm:inline-flex"
           >
@@ -130,7 +131,7 @@ export default function NavBar() {
               Let&apos;s Talk <span className="text-lg leading-none">•</span>
             </span>
             <span className="absolute inset-0 translate-y-full rounded-full bg-white transition duration-250 ease-out group-hover:translate-y-0" />
-          </Link>
+          </NavLink>
 
           <motion.button
             whileTap={{ scale: 0.94 }}
@@ -170,7 +171,16 @@ export default function NavBar() {
                 variants={menuWrap}
                 initial="hidden"
                 animate="show"
-                exit="exit"
+                exit={{
+                  opacity: 0,
+                  y: -20,
+                  scale: 0.96,
+                  filter: "blur(12px)",
+                  transition: {
+                    duration: 0.28,
+                    ease: [0.22, 1, 0.36, 1],
+                  },
+                }}
                 className="custom-menu-scroll absolute right-0 top-[64px] max-h-[calc(100vh-90px)] w-[calc(100vw-32px)] max-w-[390px] origin-top-right overflow-y-auto pr-1 sm:top-[70px]"
               >
                 <motion.div
@@ -179,45 +189,50 @@ export default function NavBar() {
                 >
                   <div className="space-y-1">
                     {navItems.map((link, index) => (
-                      <Link
+                      <NavLink
                         key={link.label}
                         to={link.to}
+                        end={link.to === "/"}
                         onClick={() => setOpen(false)}
                         className="group relative flex h-[62px] items-center justify-between overflow-hidden rounded-full px-5 text-2xl font-medium uppercase tracking-[-0.04em] text-black sm:text-3xl"
                       >
-                        <span className="absolute inset-y-1 left-1 right-1 origin-center scale-x-0 rounded-full bg-black opacity-0 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-100 group-hover:opacity-100" />
+                        {({ isActive }) => (
+                          <>
+                            <span className="absolute inset-y-1 left-1 right-1 origin-center scale-x-0 rounded-full bg-black opacity-0 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-100 group-hover:opacity-100" />
 
-                        <span className="relative z-10 h-[38px] overflow-hidden leading-[38px]">
-                          <motion.span
-                            initial={{ y: 38 }}
-                            animate={{ y: 0 }}
-                            transition={{
-                              duration: 0.65,
-                              delay: 0.08 + index * 0.045,
-                              ease: [0.22, 1, 0.36, 1],
-                            }}
-                            className="block"
-                          >
-                            <span className="block transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-full">
-                              {link.label}
+                            <span className="relative z-10 h-[38px] overflow-hidden leading-[38px]">
+                              <motion.span
+                                initial={{ y: 38 }}
+                                animate={{ y: 0 }}
+                                transition={{
+                                  duration: 0.65,
+                                  delay: 0.08 + index * 0.045,
+                                  ease: [0.22, 1, 0.36, 1],
+                                }}
+                                className="block"
+                              >
+                                <span className="block transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-full">
+                                  {link.label}
+                                </span>
+
+                                <span className="block text-white transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-full">
+                                  {link.label}
+                                </span>
+                              </motion.span>
                             </span>
 
-                            <span className="block text-white transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-full">
-                              {link.label}
+                            <span className="relative z-10 grid h-10 w-10 place-items-center overflow-hidden rounded-full">
+                              {isActive && (
+                                <span className="absolute h-2.5 w-2.5 rounded-full bg-black transition-all duration-300 group-hover:scale-0" />
+                              )}
+
+                              <span className="absolute translate-y-full text-white opacity-0 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0 group-hover:opacity-100">
+                                →
+                              </span>
                             </span>
-                          </motion.span>
-                        </span>
-
-                        <span className="relative z-10 grid h-10 w-10 place-items-center overflow-hidden rounded-full">
-                          {index === 0 && (
-                            <span className="absolute h-2.5 w-2.5 rounded-full bg-black transition-all duration-300 group-hover:scale-0" />
-                          )}
-
-                          <span className="absolute translate-y-full text-white opacity-0 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0 group-hover:opacity-100">
-                            →
-                          </span>
-                        </span>
-                      </Link>
+                          </>
+                        )}
+                      </NavLink>
                     ))}
                   </div>
                 </motion.div>

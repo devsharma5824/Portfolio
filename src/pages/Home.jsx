@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight, Code2, Layers, Mail, Sparkles } from "lucide-react";
 import heroVideo from "../assets/right_vid1.mp4";
+import { Link } from "react-router-dom";
 import {
   SiReact,
   SiTailwindcss,
@@ -42,7 +43,7 @@ const fadeUp = {
   },
 };
 
-function TextReveal({ children, className = "", delay = 0 }) {
+function TextReveal({ children, className = "", delay }) {
   return (
     <span className={`block overflow-hidden ${className}`}>
       <motion.span
@@ -75,7 +76,7 @@ export default function Home() {
       {/* HERO */}
       <section
         id="home"
-        className="relative z-10 flex min-h-screen items-center px-5 pb-10 pt-32 sm:px-8 md:px-12"
+        className="relative z-10 flex min-h-screen items-center px-5 pb-10 pt-22 sm:px-8 md:px-12"
       >
         <div className="mx-auto grid w-full max-w-[1800px] items-end gap-12 lg:grid-cols-[1.15fr_.85fr]">
           {/* LEFT CONTENT */}
@@ -92,9 +93,9 @@ export default function Home() {
             </motion.div>
 
             <h1 className="max-w-6xl text-[15vw] font-semibold leading-[0.82] tracking-[-0.04em] text-white sm:text-[13vw] lg:text-[6.6vw]">
-              <TextReveal delay={0.08}>Smooth</TextReveal>
-              <TextReveal delay={0.16}>websites</TextReveal>
-              <TextReveal delay={0.24}>with feel.</TextReveal>
+              <TextReveal delay={1}>Smooth</TextReveal>
+              <TextReveal delay={2}>websites</TextReveal>
+              <TextReveal delay={3}>with feel.</TextReveal>
             </h1>
 
             <motion.div
@@ -110,8 +111,8 @@ export default function Home() {
               </p>
 
               <div className="flex items-start gap-3">
-                <a
-                  href="mailto:hello@example.com"
+                <Link
+                  to="/projects"
                   className="group relative hidden h-14 items-center justify-center overflow-hidden rounded-full bg-white/5 px-7 text-sm font-bold uppercase text-white shadow-[0_20px_70px_rgba(0,0,0,0.18)] sm:inline-flex hover:text-black transition duration-300"
                 >
                   <span className="relative z-10 flex items-center gap-3 ">
@@ -122,7 +123,7 @@ export default function Home() {
                     className=" transition duration-300 z-2 group-hover:translate-x-0.5 group-hover:text-black group-hover:-translate-y-0.5"
                   />
                   <span className="absolute inset-0 translate-y-full rounded-full bg-white transition duration-250 ease-out group-hover:translate-y-0" />
-                </a>
+                </Link>
 
                 <a
                   href="mailto:devsharmaa04@gmail.com"

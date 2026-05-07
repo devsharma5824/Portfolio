@@ -8,11 +8,11 @@ export default function PageLoader() {
   useEffect(() => {
     const textTimer = setTimeout(() => {
       setLift(true);
-    }, 3000);
+    }, 2000);
 
     const removeTimer = setTimeout(() => {
       setShow(false);
-    }, 4000);
+    }, 3300);
 
     return () => {
       clearTimeout(textTimer);
@@ -43,7 +43,7 @@ export default function PageLoader() {
               initial={{ width: "0%" }}
               animate={{ width: "100%" }}
               transition={{
-                duration: 4,
+                duration: 3,
                 ease: [0.22, 1, 0.36, 1],
               }}
               className="h-full bg-white"

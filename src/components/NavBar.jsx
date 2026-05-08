@@ -275,8 +275,7 @@ export default function NavBar() {
                     </button>
                   </form>
                 </motion.div>
-
-                <MotionLink
+                {/* <MotionLink
                   variants={menuCard}
                   to="/play"
                   onClick={() => setOpen(false)}
@@ -289,7 +288,7 @@ export default function NavBar() {
                   <span className="text-4xl transition duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
                     ↗
                   </span>
-                </MotionLink>
+                </MotionLink> */}
               </motion.div>
             )}
           </AnimatePresence>

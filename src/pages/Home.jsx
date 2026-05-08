@@ -7,11 +7,8 @@ import {
   SiTailwindcss,
   SiFramer,
   SiJavascript,
-  SiLaravel,
-  SiNodedotjs,
-  SiMongodb,
-  SiMysql,
 } from "react-icons/si";
+import { FaHtml5, FaCss3, FaBootstrap, FaGitAlt } from "react-icons/fa";
 
 const revealUp = {
   hidden: {
@@ -69,6 +66,10 @@ export default function Home() {
     { name: "Tailwind", icon: SiTailwindcss },
     { name: "Framer", icon: SiFramer },
     { name: "JavaScript", icon: SiJavascript },
+    { name: "Bootstrap", icon: FaBootstrap },
+    { name: "Git", icon: FaGitAlt },
+    { name: "CSS3", icon: FaCss3 },
+    { name: "HTML5", icon: FaHtml5 },
   ];
 
   return (

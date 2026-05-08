@@ -10,6 +10,7 @@ import {
   SiMongodb,
   SiMysql,
 } from "react-icons/si";
+import { FaGithub, FaHtml5, FaCss3 } from "react-icons/fa";
 
 export default function Projects() {
   const fadeUp = {
@@ -37,26 +38,28 @@ export default function Projects() {
       description:
         "A premium fintech website focused on digital payments, bill payments, BBPS-style service pages, responsive sections, and polished frontend design.",
       stack: [
-        { name: "React", icon: SiReact },
+        { name: "HTML", icon: FaHtml5 },
+        { name: "CSS", icon: FaCss3 },
+        { name: "Javascript", icon: SiJavascript },
         { name: "Tailwind", icon: SiTailwindcss },
-        { name: "Framer", icon: SiFramer },
       ],
       live: "#",
-      github: "#",
+      github: "https://github.com/devsharma5824/Kepto-Fintech.git",
     },
     {
-      title: "Admin Dashboard",
+      title: "VH Entertainment",
       type: "Dashboard UI",
       year: "2026",
       description:
         "A dark premium dashboard interface with cards, responsive tables, filter sections, AJAX-friendly layouts, sidebar behavior, and clean admin UI polish.",
       stack: [
-        { name: "Laravel", icon: SiLaravel },
-        { name: "MySQL", icon: SiMysql },
+        { name: "React", icon: SiReact },
+        { name: "Framer", icon: SiFramer },
         { name: "JavaScript", icon: SiJavascript },
+        { name: "Tailwind", icon: SiTailwindcss },
       ],
       live: "#",
-      github: "#",
+      github: "https://github.com/devsharma5824/Vh-Entertainment.git",
     },
     {
       title: "Short URL API",
@@ -163,13 +166,13 @@ export default function Projects() {
                 </h2>
 
                 <p className="mt-7 max-w-2xl text-base leading-8 text-white/45">
-                  This portfolio focuses on page transitions, glass cards,
-                  animated hover states, Lenis scrolling, Framer Motion reveals,
-                  and clean black-white visual language.
+                  A curated collection of projects highlighting modern UI
+                  design, responsive layouts, smooth interactions, and
+                  real-world frontend implementation.
                 </p>
               </div>
 
-              <a
+              {/* <a
                 href="#project-list"
                 className="group relative inline-flex h-14 w-fit items-center justify-center overflow-hidden rounded-full bg-white/5 px-8 text-sm font-bold uppercase text-white transition duration-300 hover:text-black"
               >
@@ -182,10 +185,10 @@ export default function Projects() {
                 </span>
 
                 <span className="absolute inset-0 translate-y-full rounded-full bg-white transition duration-300 ease-out group-hover:translate-y-0" />
-              </a>
+              </a> */}
             </div>
 
-            <div className="mt-10 h-[280px] overflow-hidden rounded-[32px] border border-white/10 bg-black/50 p-4 sm:h-[380px]">
+            {/* <div className="mt-10 h-[280px] overflow-hidden rounded-[32px] border border-white/10 bg-black/50 p-4 sm:h-[380px]">
               <div className="relative h-full overflow-hidden rounded-[24px] border border-white/10 bg-white/[0.035]">
                 <div className="absolute left-8 top-8 flex gap-2">
                   <span className="h-3 w-3 rounded-full bg-white/80" />
@@ -235,13 +238,11 @@ export default function Projects() {
                   className="absolute bottom-[-100px] left-[-80px] h-80 w-80 rounded-full bg-white/10 blur-3xl"
                 />
               </div>
-            </div>
+            </div> */}
           </motion.div>
 
           {/* project list */}
           <section id="project-list" className="mt-28">
-            
-
             <div className="flex flex-col gap-5">
               {projects.map((project, index) => (
                 <motion.article
@@ -305,7 +306,7 @@ export default function Projects() {
                           className="grid h-13 w-13 place-items-center rounded-full border border-white/10 bg-white/5 text-white transition group-hover:border-black/10 group-hover:bg-black/5 group-hover:text-black"
                           aria-label="View github"
                         >
-                          {/* <Github size={18} /> */}
+                          <FaGithub size={18} />
                         </a>
                       </div>
                     </div>

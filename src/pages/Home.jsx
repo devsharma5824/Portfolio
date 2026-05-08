@@ -77,7 +77,7 @@ export default function Home() {
       {/* HERO */}
       <section
         id="home"
-        className="relative z-10 flex min-h-screen items-center px-5 pb-10 pt-22 sm:px-8 md:px-12"
+        className="relative z-10 flex min-h-screen items-center px-5 pb-10 pt-34 md:pt-22 sm:px-8 md:px-12"
       >
         <div className="mx-auto grid w-full max-w-[1800px] items-end gap-12 lg:grid-cols-[1.15fr_.85fr]">
           {/* LEFT CONTENT */}
@@ -93,7 +93,7 @@ export default function Home() {
               Frontend Developer / Full Stack Learner
             </motion.div>
 
-            <h1 className="max-w-6xl text-[15vw] font-semibold leading-[0.82] tracking-[-0.04em] text-white sm:text-[13vw] lg:text-[6.6vw]">
+            <h1 className="max-w-6xl text-[4rem] font-semibold leading-[0.86] tracking-[-0.07em] text-white sm:text-[13vw] lg:text-[6vw]">
               <TextReveal delay={1}>Smooth</TextReveal>
               <TextReveal delay={2}>websites</TextReveal>
               <TextReveal delay={3}>with feel.</TextReveal>
@@ -177,16 +177,16 @@ export default function Home() {
               return (
                 <div
                   key={tech.name}
-                  className="group relative overflow-hidden rounded-[28px] border border-white/10 bg-white/[0.045] p-6 backdrop-blur-2xl transition duration-500 hover:-translate-y-1 hover:bg-white hover:text-black"
+                  className="group relative overflow-hidden rounded-[28px] border border-white/10 bg-white/[0.045] p-4 md:p-6 backdrop-blur-2xl transition duration-500 hover:-translate-y-1 hover:bg-white hover:text-black"
                 >
                   <div className="mb-10 flex items-center justify-between">
                     <Icon className="text-4xl text-white/70 transition duration-500 group-hover:text-black" />
-                    <span className="text-2xl opacity-0 transition duration-500 group-hover:translate-x-1 group-hover:opacity-100">
+                    <span className="text-xl opacity-0 transition duration-500 group-hover:translate-x-1 group-hover:opacity-100">
                       ↗
                     </span>
                   </div>
 
-                  <h3 className="text-2xl font-medium tracking-[-0.06em] text-white transition duration-500 group-hover:text-black">
+                  <h3 className="text-xl md:text-2xl font-medium tracking-[-0.06em] text-white transition duration-500 group-hover:text-black">
                     {tech.name}
                   </h3>
                 </div>

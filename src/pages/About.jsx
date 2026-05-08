@@ -115,7 +115,7 @@ export default function About() {
                 About Me / Skills / Experience
               </motion.div>
 
-              <h1 className="max-w-6xl text-[15vw] font-semibold leading-[0.82] tracking-[-0.04em] text-white sm:text-[13vw] lg:text-[6.6vw]">
+              <h1 className="max-w-6xl text-[4rem] font-semibold leading-[0.86] tracking-[-0.07em] text-white sm:text-[13vw] lg:text-[6vw]">
                 <span className="block overflow-hidden">
                   <motion.span
                     variants={revealUp}
@@ -184,7 +184,7 @@ export default function About() {
           </motion.div>
 
           {/* SKILLS */}
-          <section className="mt-28">
+          <section className="mt-16 md:mt-28">
             <div className="mb-10 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
               <h2 className="text-5xl font-medium tracking-[-0.07em] text-white md:text-7xl">
                 Skills
@@ -234,7 +234,7 @@ export default function About() {
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, margin: "-100px" }}
-              className="mb-20"
+              className="mb-14 md:mb-20"
             >
               <h2 className="text-5xl font-medium tracking-[-0.07em] text-white md:text-7xl">
                 Experience
@@ -271,12 +271,6 @@ export default function About() {
             </div>
 
             {/* MOBILE STRAIGHT STRIPE */}
-            <div className="absolute left-4 top-36 h-[calc(100%-7rem)] w-px bg-white/10 lg:hidden">
-              <motion.div
-                style={{ scaleY: stripeProgress }}
-                className="h-full w-px origin-top bg-white"
-              />
-            </div>
 
             <div className="relative space-y-16 lg:space-y-28">
               {experiences.map((item, index) => (
@@ -330,9 +324,9 @@ export default function About() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: "-100px" }}
-            className="mt-32 rounded-[40px] border border-white/10 bg-white/[0.04] p-8 backdrop-blur-2xl md:p-12"
+            className="mt-20 md:mt-32 rounded-[40px] border border-white/10 bg-white/[0.04] p-8 backdrop-blur-2xl md:p-12"
           >
-            <h2 className="max-w-4xl text-5xl font-medium leading-[0.95] tracking-[-0.07em] md:text-7xl">
+            <h2 className="max-w-4xl text-3xl md:text-5xl font-medium leading-[0.95] tracking-[-0.07em] md:text-7xl">
               I build clean frontend experiences.
             </h2>
 

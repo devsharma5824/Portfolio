@@ -97,7 +97,7 @@ export default function NavBar() {
 
   return (
     <header className="fixed left-0 right-0 top-0 z-[999] px-4 pt-6 sm:px-7 md:px-12">
-      <nav className="mx-auto flex max-w-[1800px] items-center gap-6">
+      <nav className="mx-auto flex max-w-[1800px] items-center gap-6 px-4 sm:px-10">
         {/* LEFT NAME */}
         <Link
           to="/"
@@ -105,11 +105,11 @@ export default function NavBar() {
         >
           <span className="relative h-[36px] overflow-hidden leading-[36px]">
             <span className="block transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-full">
-              𝓓𝓔𝓥
+              DEV
             </span>
 
             <span className="block transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-full">
-              𝓓𝓔𝓥
+              DEV
             </span>
           </span>
         </Link>

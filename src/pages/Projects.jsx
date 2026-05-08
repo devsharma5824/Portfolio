@@ -43,12 +43,12 @@ export default function Projects() {
         { name: "Javascript", icon: SiJavascript },
         { name: "Tailwind", icon: SiTailwindcss },
       ],
-      live: "#",
+      live: "https://keptofintech.netlify.app",
       github: "https://github.com/devsharma5824/Kepto-Fintech.git",
     },
     {
       title: "VH Entertainment",
-      type: "Dashboard UI",
+      type: "Movie Website",
       year: "2026",
       description:
         "A dark premium dashboard interface with cards, responsive tables, filter sections, AJAX-friendly layouts, sidebar behavior, and clean admin UI polish.",
@@ -58,22 +58,8 @@ export default function Projects() {
         { name: "JavaScript", icon: SiJavascript },
         { name: "Tailwind", icon: SiTailwindcss },
       ],
-      live: "#",
+      live: "https://vhentertainment.netlify.app",
       github: "https://github.com/devsharma5824/Vh-Entertainment.git",
-    },
-    {
-      title: "Short URL API",
-      type: "Backend Project",
-      year: "2025",
-      description:
-        "A Node.js and MongoDB based URL shortener with redirect handling, visit tracking, analytics-friendly structure, and REST API routes.",
-      stack: [
-        { name: "Node.js", icon: SiNodedotjs },
-        { name: "MongoDB", icon: SiMongodb },
-        { name: "JavaScript", icon: SiJavascript },
-      ],
-      live: "#",
-      github: "#",
     },
     {
       title: "Portfolio Website",
@@ -86,8 +72,8 @@ export default function Projects() {
         { name: "Tailwind", icon: SiTailwindcss },
         { name: "Framer", icon: SiFramer },
       ],
-      live: "#",
-      github: "#",
+      live: "https://devsharmaa04.netlify.app",
+      github: "https://github.com/devsharma5824/Portfolio.git",
     },
   ];
 
@@ -116,7 +102,7 @@ export default function Projects() {
                 Selected Work / Projects
               </motion.div>
 
-              <h1 className="max-w-6xl text-[15vw] font-semibold leading-[0.82] tracking-[-0.04em] text-white sm:text-[13vw] lg:text-[6.6vw]">
+              <h1 className="max-w-6xl text-[4rem] font-semibold leading-[0.86] tracking-[-0.07em] text-white sm:text-[13vw] lg:text-[6vw]">
                 <span className="block overflow-hidden">
                   <motion.span
                     initial={{ y: "120%" }}
@@ -242,8 +228,8 @@ export default function Projects() {
           </motion.div>
 
           {/* project list */}
-          <section id="project-list" className="mt-28">
-            <div className="flex flex-col gap-5">
+          <section id="project-list" className="mt-20 md:mt-28">
+            <div className="flex flex-col gap-10">
               {projects.map((project, index) => (
                 <motion.article
                   key={project.title}
@@ -295,6 +281,7 @@ export default function Projects() {
                       <div className="flex gap-3">
                         <a
                           href={project.live}
+                          target="_blank"
                           className="grid h-13 w-13 place-items-center rounded-full bg-white text-black transition group-hover:bg-black group-hover:text-white"
                           aria-label="View live project"
                         >
@@ -324,7 +311,7 @@ export default function Projects() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: "-100px" }}
-            className="mt-32 rounded-[40px] border border-white/10 bg-white/[0.04] p-8 backdrop-blur-2xl md:p-12"
+            className="mt-20 md:mt-32 rounded-[40px] border border-white/10 bg-white/[0.04] p-8 backdrop-blur-2xl md:p-12"
           >
             <h2 className="max-w-4xl text-5xl font-medium leading-[0.95] tracking-[-0.07em] md:text-7xl">
               Have a project idea?

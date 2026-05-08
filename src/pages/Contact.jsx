@@ -57,12 +57,10 @@ export default function Contact() {
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-black text-white">
-      
-
       <section className="relative z-10 min-h-screen px-5 pb-24 pt-44 sm:px-8 md:px-12 lg:pt-40">
         <div className="mx-auto max-w-[1800px]">
           {/* heading */}
-          <h1 className="max-w-6xl text-[4.6rem] font-semibold leading-[0.86] tracking-[-0.07em] text-white sm:text-[13vw] lg:text-[6.6vw]">
+          <h1 className="max-w-6xl text-[4rem] font-semibold leading-[0.86] tracking-[-0.07em] text-white sm:text-[13vw] lg:text-[6vw]">
             <span className="block overflow-hidden">
               <motion.span
                 variants={revealUp}
@@ -102,7 +100,7 @@ export default function Contact() {
               transition={{ delay: 0.45 }}
               className="w-full rounded-[28px] border border-white/10 bg-white/[0.035] p-5 shadow-[0_40px_140px_rgba(0,0,0,0.55)] backdrop-blur-2xl sm:p-8 md:p-10 lg:max-w-4xl"
             >
-              <div className="mb-12 flex items-center justify-between gap-5">
+              <div className="mb-8 md:mb-12 flex items-center justify-between gap-2  md:gap-5">
                 <div>
                   <p className="text-sm uppercase tracking-[0.25em] text-white/30">
                     Message
@@ -134,7 +132,7 @@ export default function Contact() {
                     type="text"
                     name="name"
                     placeholder="Enter your name"
-                    className="peer block w-full border-0 border-b border-white/20 bg-transparent px-0 py-4 text-base text-white outline-none placeholder:text-white/20 focus:border-white/70 sm:text-lg"
+                    className="peer block w-full border-0 border-b border-white/20 bg-transparent px-0 py-2 md:py-4 text-base text-white outline-none placeholder:text-white/20 focus:border-white/70 sm:text-lg"
                   />
 
                   <span className="pointer-events-none absolute bottom-0 left-0 h-[2px] w-full origin-center scale-x-0 rounded-full bg-white transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] peer-focus:scale-x-100" />
@@ -157,7 +155,7 @@ export default function Contact() {
                     type="number"
                     name="mob"
                     placeholder="Enter your mobile ( Optional )"
-                    className="overflow-y-hidden peer block w-full border-0 border-b border-white/20 bg-transparent px-0 py-4 text-base text-white outline-none placeholder:text-white/20 focus:border-white/70 sm:text-lg"
+                    className="overflow-y-hidden peer block w-full border-0 border-b border-white/20 bg-transparent px-0 py-2 md:py-4 text-base text-white outline-none placeholder:text-white/20 focus:border-white/70 sm:text-lg"
                   />
 
                   <span className="pointer-events-none absolute bottom-0 left-0 h-[2px] w-full origin-center scale-x-0 rounded-full bg-white transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] peer-focus:scale-x-100" />
@@ -180,7 +178,7 @@ export default function Contact() {
                     name="message"
                     rows="4"
                     placeholder="Enter your message"
-                    className="peer block w-full resize-none border-0 border-b border-white/20 bg-transparent px-0 py-4 text-base text-white outline-none placeholder:text-white/20 focus:border-white/70 sm:text-lg"
+                    className="peer block w-full resize-none border-0 border-b border-white/20 bg-transparent px-0 py-2 md:py-4 text-base text-white outline-none placeholder:text-white/20 focus:border-white/70 sm:text-lg"
                   />
 
                   <span className="pointer-events-none absolute bottom-0 left-0 h-[2px] w-full origin-center scale-x-0 rounded-full bg-white transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] peer-focus:scale-x-100" />
@@ -190,7 +188,7 @@ export default function Contact() {
 
               <button
                 type="submit"
-                className="group relative mt-12 inline-flex h-14 items-center justify-center overflow-hidden rounded-full bg-white/5 px-8 text-sm font-bold uppercase text-white shadow-[0_20px_70px_rgba(0,0,0,0.18)] transition duration-300 hover:text-black"
+                className="group relative mt-8 md:mt-12 inline-flex h-14 items-center justify-center overflow-hidden rounded-full bg-white/5 px-8 text-sm font-bold uppercase text-white shadow-[0_20px_70px_rgba(0,0,0,0.18)] transition duration-300 hover:text-black"
               >
                 <span className="relative z-10 flex items-center gap-3">
                   Send Message
